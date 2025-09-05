@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: grey;">
+
+    //xml hhhtp request.
+
+    //ajux programming.
+    //asyncronous js,and ajuxx ke andar hot ahain ehh.
+
+
+    <!-- 0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<!-- UNSENT
+The XMLHttpRequest client has been created, but the open() method hasn't been called yet.
+
+OPENED
+open() method has been invoked. During this state, the request headers can be set using the setRequestHeader() method and the send() method can be called which will initiate the fetch.
+
+HEADERS_RECEIVED
+send() has been called, all redirects (if any) have been followed and the response headers have been received.
+
+LOADING
+Response's body is being received. If responseType is "text" or empty string, responseText will have the partial text response as it loads.
+
+DONE
+The fetch operation is complete. This could mean that either the data transfer has been completed successfully or failed. -->
+</body>
+<script>
+    //xml jho request veji jata hain ..ajax request ..
+    //fisrt cretae a object.
+    //const xhr = new XMLHttpRequest()//its have a method//object banana padta hain.
+   // xhr.open('GET',)//ish ke andar do parameter lagta hain 1. method 2.string
+
+
+
+     const requestUrl = 'https://api.github.com/users/hiteshchoudhary'// hard coded string.
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl)// request nahi geya ..call karna pad hain.
+    // console.log("HERE");
+   // console.log(xhr.readyState);// we need continiously track.
+    xhr.onreadystatechange = function(){// jaiseh chhage ho raha hain apna state bhi change ho raha hain..
+        console.log(xhr.readyState);
+
+        if(xhr.readyState === 4){
+            const data =JSON.parse( this.responseText)
+            // here we used this.resposeText // matlab ishi context ki upor kam karna vha raha huin.//current context ke bad ho raha hain.
+            console.log( typeof data);//ab object ban chuka hain// most of the time data string mein bhi ata hain .
+            //here we need to do typecast .
+            console.log(data.followers);
+        }
+    }
+    xhr.send()
+
+    // here we have a assignment....
+
+
+    //keya console javscript ka part hain ? technically hain ..or trchnically nahi hain.
+    //actually console log ak debuging tool hain.
+    //java script chalta hain run time environment hota hain..nodes js chala ta hain ..
+    /// node js implement of v8 engine.
+    // console .log ehh bhi eha per hota hain.v8 engien per hota hain.
+    </script>
+</html>

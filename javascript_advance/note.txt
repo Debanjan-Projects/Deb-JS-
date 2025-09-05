@@ -1,0 +1,129 @@
+// mainly in javascrip we wnat to know two important things one  is dom and the another one is event//
+
+// 1.dom//document object model.
+//2.Event.//
+
+
+// how create  a daigram of a website
+// windows
+// documents 
+// html [html have two part]
+// [head and body]
+
+
+// [head have two part]
+// head-[title and meta]
+// title have a (text node ).
+// meta dont have any text ..meta have only attribute.
+
+
+//[body parts ]
+// [div[attribute] and div also have two childe]
+// [h1 and paragraph]
+// h1[also have text nodec]
+// and paragraph also have the same [test node]
+
+
+// manuplulation..***********************************************************
+
+//html collection ||node collection||array e sob alag alag hota hain.
+
+//akabar elemeny ko select kar na ahhh jaye then just about the all types of method ,then work easily.
+
+
+// if i want to select a element ..just right click and go to the inspect .we can select a element in two wya 1.id and another one is 2.class
+// so just enter in the coonsole part and right document.getelementbyid.[[using id selector]]
+
+// getelementbyid its a method so wwe know that put parentisish afeter getelementbyid().
+
+
+// document.getElementById("title")
+
+//when we write any jsx code then ,we dont write only class ,we all write className .
+//conflict karta hain className she ,
+
+//getattribute ak function hain ..getAttribute mein batana padta hainn koishi attribute chaiye.
+
+// setArrtibute always done a override work.
+
+
+// document.getElementById("title").setAttribute('class','test heading')
+// here previous attribute override here ..its means test and heading saw together in the class.
+
+// how add a content ...**********************************
+
+// differenece between innertext and textcontent....
+
+// textcontent saw all type of content in the main content , which are may be not display bye some method or attribute ..
+
+// its all time saw the the hole things.
+
+
+//******************************* */
+//or innertext saw only the sawing text part just..
+
+
+//********************************************* */
+// innerHTML give full values full values.......
+
+
+// **********
+// queryselector.....
+// document.querySelector('h1')...only give the first h1..
+
+// we can write directly query by using queryselector.its related with the jquery .
+
+// by using queryselector we can used any kind of css selector ..
+
+// its all about how we can select one and induvisula ellement..
+
+// ************************************************
+// queryselectorAll
+// here nodelist,
+//  htmlcollection its not a pure array
+//  ..here we have the foreach loop but not the map...
+//  in array map
+// check prpoperty 
+// array have by default mmap function.
+
+// here we give the ilnstraction to the compiler that which line i want to edit.
+
+//******************************* */
+// its all about node list ..
+// node list when we choose we must be used for each ..
+// **************************************
+
+//  if i wnat to used map list on node list ,, then we need too convert the node list by using array .
+// also convert the html collection..
+// using array .
+// array have a method . from.
+// 
+// 
+// query selector main just one value ee hh de sakta hain ,or millta hain ,lekin queryselector all mein haum logoko node list milta hain or ushko manupulation karneke liye array jaishe index position dena padta hain.
+// *******************************************************
+// if i have  10list item i wnat to update the all list item .. thwn just use the for each loop and update the node list .using queryselectot.. update the existing values.
+
+//get elemenyByclassName===>get the html collection.
+
+//foreach loop not work in html collection.
+
+//here we need to convert the html collection,
+//usingARRAY.(from(templist))
+
+//now we can used foreach loop here.
+
+
+// *******************************************
+// relationsship ...
+
+// paren child ..r or child paren r.
+// 
+
+
+
+//Temporal  death zone...
+//kshi variable ko declare karneshe pehele ,ushe call kiya jai to undefine ata hain ushiko temporal death zone keheta hain..
+
+
+
+.///

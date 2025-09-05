@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Digital Clock Using JavaScript</title>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="container">
+        <div class="clock">
+          <span id="hrs">00</span>
+          <span>:</span>
+          <span id="min">00</span>
+          <span>:</span>
+          <span id="sec">00</span>
+          <span id="ampm">am</span>
+        </div>
+      </div>
+    </div>
+
+    
+    <script>
+      function updateClock() {
+        const hrsEl = document.getElementById("hrs");
+        const minEl = document.getElementById("min");
+        const secEl = document.getElementById("sec");
+        const ampmEl = document.getElementById("ampm");
+
+        const now = new Date();
+        let h = now.getHours();
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+        const ampm = h >= 12 ? "pm" : "am";
+
+        h = h % 12;
+        h = h ? h : 12; // show 12 instead of 0
+
+        hrsEl.textContent = h.toString().padStart(2, "0");
+        minEl.textContent = m.toString().padStart(2, "0");
+        secEl.textContent = s.toString().padStart(2, "0");
+        ampmEl.textContent = ampm;
+      }
+
+      // Run every second
+      setInterval(updateClock, 1000);
+
+      // Run immediately on page load
+      updateClock();
+    </script>
+  </body>
+</html>

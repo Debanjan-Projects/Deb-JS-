@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Validation</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 mx-auto border border-1 mt-5 p-4 rounded-3 shadow-sm">
+          <h3 class="mb-4 text-center">Contact Form</h3>
+          <form>
+            <div class="mb-3">
+              <label for="contact-name" class="form-label">Full Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contact-name"
+                placeholder="Enter your name"
+                onkeyup="validateName()"
+              />
+              <div id="name-error" class="form-text alert alert-danger d-none"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contact-phone" class="form-label">Phone No</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="contact-phone"
+                placeholder="1234567890"
+                onkeyup="validatePhone()"
+              />
+              <div id="phone-error" class="form-text alert alert-danger d-none"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="contact-email" class="form-label">Email ID</label>
+              <input
+                type="email"
+                class="form-control"
+                id="contact-email"
+                placeholder="example@domain.com"
+                onkeyup="validateEmail()"
+              />
+              <div id="email-error" class="form-text alert alert-danger d-none"></div>
+            </div>
+
+            <button type="button" class="btn btn-primary w-100" onclick="return validateForm()">Submit</button>
+            <div id="submit-error" class="form-text alert alert-danger d-none mt-3 text-center"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+
+    
+    
+    <script>
+      function showError(id, message) {
+        const el = document.getElementById(id);
+        el.textContent = message;
+        el.classList.remove("d-none");
+      }
+
+      function hideError(id) {
+        document.getElementById(id).classList.add("d-none");
+      }
+
+      function validateName() {
+        const name = document.getElementById("contact-name").value.trim();
+        if (name.length < 3) {
+          showError("name-error", "Name must be at least 3 characters.");
+          return false;
+        }
+        hideError("name-error");
+        return true;
+      }
+
+      function validatePhone() {
+        const phone = document.getElementById("contact-phone").value.trim();
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(phone)) {
+          showError("phone-error", "Enter a valid 10-digit phone number.");
+          return false;
+        }
+        hideError("phone-error");
+        return true;
+      }
+
+      function validateEmail() {
+        const email = document.getElementById("contact-email").value.trim();
+        const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailRegex.test(email)) {
+          showError("email-error", "Enter a valid email address.");
+          return false;
+        }
+        hideError("email-error");
+        return true;
+      }
+
+      function validateForm() {
+        const nameValid = validateName();
+        const phoneValid = validatePhone();
+        const emailValid = validateEmail();
+
+        if (!nameValid || !phoneValid || !emailValid) {
+          showError("submit-error", "Please fix errors before submitting.");
+          setTimeout(() => hideError("submit-error"), 3000);
+          return false;
+        }
+
+        alert("Form submitted successfully!");
+        hideError("submit-error");
+        return true;
+      }
+    </script>
+  </body>
+</html>
+

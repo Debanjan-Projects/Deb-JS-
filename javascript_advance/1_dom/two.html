@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div class="parent">
+     <div class="day">Monday</div>
+     <div class="day">Tuesday</div>
+     <div class="day" >Wednesday</div>
+     <div class="day">Thrusday</div>
+    </div>
+</body>
+
+<script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent);
+    // console.log(parent.children[0].innerHTML)
+    //here we got the html collection.//array like property.
+//loop tab hi lagega jab html collection ko array mein convert kar leh.then we can used the loop.
+
+    // for(let i=0; i<parent.children.length;i++){
+    //     console.log(
+    //         parent.children[i].innerHTML
+    //     );
+    // }
+
+    //chhange the style.
+    parent.children[1].style.color  = 'white'
+    //properties...
+
+    // console.log(parent.firstElementChild);
+    // console.log(parent.lastElementChild);
+
+    //her we got the day 1 value.
+// const dayone = document.querySelector('.day')
+// console.log(dayone);
+
+//child to parent.
+// console.log(dayone.parentElement);
+console.log(dayone.nextElementSibling);
+
+//here we got the nodelist, where one space/braek also calculate.
+console.log("NODES:", parent.childNodes);//complex tree structure
+//line break ohh bhi ak node element hain.
+//chilednodes.
+</script>
+</html>
+
+//its all about traversing...

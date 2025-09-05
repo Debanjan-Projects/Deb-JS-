@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom manupulation</title>
+</head>
+<body style="background-color: black;color: white;">
+ <ul class="language">
+    <li>javascript</li>
+ </ul>
+    
+</body>
+<script>
+    //add a function.
+function addLanguage(langName){
+    //design part
+    //first create a element list item
+    //elect the unorder list 
+    //then append the unorderlist.
+    const li = document.createElement('li' );
+     li.innerHTML = `${langName}`
+    document.querySelector('.language').appendChild(li)
+    //In JavaScript, appendChild() is a method used to add a child element to a parent element in the DOM .
+}
+addLanguage('java')
+addLanguage('typescript')
+// create li then innerhtml then attach with aany thing
+
+// optmize way add language not fully travesr the tree ..
+//innerHTML ...NOT..... USE APPEND
+
+
+function addOptiLnaguage(langName){
+    //create element,li, then innnerhtml a main appenchild,then create a node then add the langname .
+    const li = document.createElement('li');
+
+    li.appendChild(document.createTextNode(langName))
+    //using the class seelector.
+
+    document.querySelector('.language').appendChild(li)
+}
+addOptiLnaguage('spring')
+
+//edit
+//fisrt select a values 
+const secondLang = document.querySelector("li:nth-child(2)")
+//try to less used because it is a optimized approach ..
+// secondLang.innerHTML = 'Mojo'
+const newli =document.createElement('li')
+//here no no more difference between text content and innerhtml
+newli.textContent = "Mojo"
+//here we used a method replacewith.
+secondLang.replaceWith(newli)
+
+//edit first javascript with tpyescript
+const firsLang = document.querySelector("li:first-child")
+// here we used outerhtml.. here we need to give full outer html
+firsLang.outerHTML = '<li>typescript<li>'
+
+    //remove
+const lastLang = document.querySelector('li:last-child')
+lastLang.remove()
+
+// dom 1.how dom work .
+// 2.dom behind the secrate.
+// 3.what are the optimize approach.
+// 4.what are the tree structure.
+// 5.what are the node list.
+// 6about the travesrs.
+// 7.crteate a new element 
+// 8. relation between paren child siblings 
+// .9.how practics using of queryselector.
+//edit,innerhtml, outerhtml,remove..etc.
+
+</script>
+    
+
+
+
+    
+
+</html>
+
+
+//code sand box for projects................
+
+//stackblitz another website for projects...........
+
+// adding list item there are two many way to create  list item .so here we create a function */

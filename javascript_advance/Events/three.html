@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event two</title>
+</head>
+<body>
+    <h1>chai aur javaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+ <script>
+    //setinterval ehhh bhi same hain lekin thora sha alag hain.
+    // srttimeout ..ak certain time chata hain or ushke bad ak bar hi print karta hain .
+    //lekin setinterval time lene ke bad ushh time ke bad bad hi bar bar print karta hain .
+
+
+    const sayDate = function(str){
+console.log(str,Date.now());// ish ke sath date .now add karte hain .its work as a real date sowing method.
+}
+
+// setInterval (sayDate,1000,'hi')// third parameter hota hain ish ke andar .
+
+//jaishe hamare pash setinterval hain oshee hi clearInterval hain ish ko rock ne ke liye ..
+//just make it in a reference.
+
+// const intervalId= setInterval (sayDate,1000,'hi');
+// clearInterval(intervalId)
+
+
+// do button laganeka target ehh tha ki .when i press the start button the the print start autometically .
+//and when i press the stop button then the print stop autometti cally .
+
+
+
+// const intervalId= setInterval (sayDate,1000,'hi');
+let intervalId; //  Declare this outside so both start/stop buttons can use it.
+ let isStopped = false; // stop once permanently
+
+
+document.querySelector('#start').addEventListener('click', function(){
+        if (!isStopped && !intervalId) { // prevent restart after stop
+            intervalId = setInterval(sayDate, 1000, 'hi');
+            console.log('start');
+        }
+    })
+
+        
+
+        //for stop button.
+
+      document.querySelector('#stop').addEventListener('click', function() {
+        clearInterval(intervalId);
+        intervalId = null;
+        isStopped = true; // permanently stop
+        console.log('Stopped');
+    });
+
+      
+
+ </script>
+</body>
+</html>
+
+
+//setTimOut its all are the part of asynchronous code..here the main event or main thread not block
+//asynchtronous js ke andar makedin hain .
+//js my default asyn nahi hota js ke async banana padtta hain .may may some web api use karke.
+//jho complete js a run time oh async allow karta hain lekin ....js default engin async nahi hota hain...

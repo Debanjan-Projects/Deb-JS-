@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure aur chai </title>
+</head>
+<body style="background-color: grey;">
+    <button id="orange">orange</button>
+    <button id="green">green</button>
+    
+    
+</body>
+<script>
+   
+// function init() {
+//   let name = "Mozilla"; // name is a local variable created by init
+//   function displayName() {
+//     // displayName() is the inner function, that forms a closure
+//     console.log(name); // use variable declared in the parent function
+//   }
+//   displayName();
+// }
+// init();
+//main fucntion call kar diya.
+
+
+
+
+// function outer(){
+//     let username = "Debanjan"
+//     function inner(){
+//         let secret = "my1234"
+//         console.log("OUTER",secret);
+//         console.log("inner",username);
+// 
+// 
+// 
+// //function ke andar agar  function banaya hain to inner function outer ke all variable and property ko access kar sakta hain.
+
+        
+//     }
+//     function innerTwo(){
+//         console.log(secret);
+// 
+// 
+// // outer function hain parent hain to ap extends kar sakta hoin ..lekin inner function data nahi share nahi karega .bhai bhai data nahi share nahi karega..
+//         console.log("innerTwo", username);
+
+//     }
+//     inner()
+//     innerTwo()
+// }
+// outer()// outer inner se data nehi lehh sakta hain..
+// console.log("TOO OUTER",username);
+
+
+
+
+
+// Closure***************************************
+// Consider the following code example:
+
+// js
+// Copy to Clipboard
+
+
+
+// function makeFunc() {
+//     const name = "Mozilla";
+//     function displayName() {
+//         console.log(name);
+//     }
+//     return displayName;
+// }
+
+// const myFunc = makeFunc();
+// //agar outer function ee nahi rahe to inner function kaise chalega .tab lexical scoping kam nahi kareg a...tab eha kam karta hain closure,......
+// myFunc();//after execute srif display name hi nahi jayega... agar outer function hain ..to outer function ki pura scope uthke jayega.
+// //lxical scoping ura uthke jayega ..memory pura share hoga.
+
+
+</script>
+<script>
+
+
+// document.getElementById("orange").onclick = function(){
+//     document.body.style.backgroundColor = 'orange'
+// }
+
+
+// document.getElementById("green").onclick = function(){
+//     document.body.style.backgroundColor = 'green'
+// }
+
+
+
+
+//here we have an problem agar mere pass 10000 button hain or har button ki alag alag color karna hain..tab hum log ohh problem ka face karta hain..
+
+
+//create a clickhendaler...
+
+function clickhendaler(color){
+    //  document.body.style.backgroundColor = `${color}`
+
+    return function (){
+    document.body.style.backgroundColor = `${color}`
+    }//srif akela function nahi jata hain .pura lexical scope uth ke jata hain issh liye ab ehh kam karega.....
+}
+
+document.getElementById('orange').onclick = clickhendaler("orange")//function nahi diiya hai ,,diya hain function ke reference..
+
+
+document.getElementById('green').onclick = clickhendaler("green")//function nahi diiya hai ,,diya hain function ke reference..
+
+//return type cha raha tha ak function ..lekin edhar ham ne pura function hi execute kar diya..
+//we need t o chnage the definition.
+
+</script>
+</html>
+
+
+//closure keya hain
+//lexica scnoping keya hota hain..

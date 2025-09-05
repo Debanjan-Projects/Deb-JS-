@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+</head>
+<body>
+    <button> button clicked</button>
+</body>
+<script>
+    class React {
+        constructor(){
+            this.library = "React"
+            this.server = "https://localhost:300"
+
+            //requirement
+            document.querySelector('button').addEventListener('click', this.handelClick.bind(this))
+            //attected karo.binding karna padegi kiuki ehh sari button ki reference lehh paooo.
+            
+            // document.querySelector('button').addEventListener('click', this.handelClick//this ki referenece hain ehya nahi)
+        }
+        handelClick(){
+            console.log("button clicked");
+            console.log(this.server);//here need to binding.
+        }
+    }
+
+
+    const app = new React()
+</script>
+</html>

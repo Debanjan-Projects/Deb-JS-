@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('owl')//this is not a good approach.avoid this aproach"></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+//in javascript all events are run sequentialy ..some are exception.. 
+
+<script>
+    //2nd approach
+    //  document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+
+
+        //this approach also have some problem . when we add the onclick on id .. onclick event have some problem ..here we must be used eventListener .. evenetListener give the onclick functionality ,with propogational ability also.
+
+// what is propogational ability
+//         The propagation ability of an event listener refers to how events travel through the DOM (Document Object Model) when they are triggered, and how event listeners respond to those events during this travel.
+
+// This process is known as event propagation, and it has three phases:
+
+// 🔄 Three Phases of Event Propagation:
+// Capturing Phase (or "capture"):
+
+// The event starts at the top (<html>) and travels down toward the target element.
+
+// Target Phase:
+
+// The event reaches the target element (where the event actually occurred).
+
+// Bubbling Phase:
+
+// The event bubbles back up from the target element to the top (<html>).
+
+// 📌 By Default:
+// Event listeners use the bubbling phase.
+
+// But you can change that to capturing phase using a special flag.
+//     //}
+
+
+
+     // attachEvent()//internet explorar per run karane ke liye .
+    // jQuery - on//framework .. oha per .on lagake kam ho jata tha.
+
+//using addEventListener.
+//what si evenetlistener..
+
+// The addEventListener() method in JavaScript allows you to set up a function that will be called whenever a specific event occurs on an element — like clicking, hovering, typing, etc.
+
+
+     document.getElementById('owl').addEventListener('click', function(e){
+        // get the evenet object .
+        console.log(e);
+        //here we got browser event  or 
+        //environment event..mouse ne kha kha click kiya...
+     }, false);//third parameter
+
+
+// keya key evenet parna hain..
+    // type,(keyboard ke types event ,, mouse ke type event ,,etc ) timestamp(time and date activity kaise change kare ), defaultPrevented(change of any default behaviour, form mein submit button).
+    // target, toElement, srcElement(), currentTarget,
+
+    //interview prospect ...
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+
+
+    
+
+
+
+//third approach.
+// what is evenetpropagation..
+// Eventpropagation have two context 
+//1.event bubling 
+//2.event capcturing
+
+// how a event propagation is work ...
+
+// and how we stop a event propagation.
+
+document.getElementById('images').addEventListener('click', function(e){//here we target the images direct.
+        console.log("clicked inside the ul");
+
+
+     }, false)//third parameter
+
+//bubling up      .. buble means niche se upor jaoo ,,, first inner  Element then li then ul ...to select a big element from inside to outside ..this is known as event propagation.
+//and this is known as bubling.
+
+
+
+// or capcturing mode   ....work from the top to button..
+
+
+    document.getElementById('owl').addEventListener('click', function(e){// target id owl .
+        //evenet object .
+        console.log("owl clicked");
+       e.stopPropagation()//buble stop ..upor ke element ke pas nahi jayega.
+    }, false)//third parameter ,default false hota hain ,,ish liye nahi likha to bhi problem nahi hota.
+
+
+
+    
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();//
+        e.stopPropagation()//event buble hoke uppor ke element mein nahi jayega.
+        console.log("google clicked");
+    }, false)
+   
+
+
+    //*******************************************************
+    //when i click on any image this image must be delete.
+    // target the main ul..images ...using id .
+//we have problem in this approach.
+
+//target the main ul.
+    //eventspillover
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        //tag name.//
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode// try to search the parent nodee.
+            removeIt.remove()
+        }
+    
+        
+    },false)
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event two</title>
+</head>
+<body>
+    <h1>chai aur code</h1>
+    <button id="stop">Stop</button>
+    <script>
+        // first we know about what is fuction .
+        // first basic function hain setTimeOut.
+
+        // setTimeout its a method .. and this method is call an api.
+
+        //handeler is a call back .. its a function jishka name nahi ..
+        // or dushra hain time out joh number mein milta hain .
+
+        //timeout its means ap mereko time doin ush time ke bad ap jho bhi doe ohh hum print kar denge ..
+        // it is execute for one time ..
+        // or set iterval ..ohh kahta hain ap mereko ap specific time doin ush time ke andar ..wait kaarnge or bar bar ussh time ke bad print karte rahenge ..
+
+
+
+        const saydebanjan = function(){
+            console.log('Debanjan');
+        }
+        //h1 ke name chage karke dushri lekh sakta huin.
+
+   //document.querySelector('h1').innerHTML = "js best series"
+
+   //mein chata huin  ki  do second bad ehh kam hoin
+
+   const changeText = function(){
+       document.querySelector('h1')
+       .innerHTML = "js best series"
+   }
+
+        const changeMe =  setTimeout(changeText,2000) 
+        //setTimeout(saydebanjan,2000)
+
+
+
+        document.querySelector('#stop').addEventListener('click',function(){//handeler call back.
+            clearTimeout(changeMe)
+            console.log('Stopped');
+        })
+
+
+        // jaishe set time out hain oshe hi clearTimeOt bhi ak function hota hain.
+
+        //clearTimeout(changeMe )//call back jho queue main hain ohh hata do.
+
+        // //eaishe cleartimeout nahi execute hota hain ..cleartimeout ko lagta hain reference.
+        //ap konshi wali timeout ko hatana chati hain.
+
+        //ehh hum koi event pe laganaa chata huin.
+    </script>
+</body>
+</html>

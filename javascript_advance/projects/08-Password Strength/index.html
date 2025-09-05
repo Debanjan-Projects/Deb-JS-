@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Password Strength</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-box">
+        <input type="password" id="password" placeholder="Password" />
+        <button type="submit"><img src="arrow.png" /></button>
+        <p id="message">Password is <span id="strength"></span></p>
+      </div>
+    </div>
+
+   
+    <script>
+      const passwordInput = document.getElementById("password");
+      const strengthText = document.getElementById("strength");
+      const message = document.getElementById("message");
+
+      passwordInput.addEventListener("input", function () {
+        const password = passwordInput.value;
+        let strength = "";
+
+        if (password.length === 0) {
+          message.style.display = "none";
+          return;
+        } else {
+          message.style.display = "block";
+        }
+
+        if (password.length < 6) {
+          strength = "Too short";
+          strengthText.style.color = "red";
+        } else if (password.length <= 8) {
+          strength = "Weak";
+          strengthText.style.color = "orange";
+        } else if (
+          password.match(/[a-z]/) &&
+          password.match(/[A-Z]/) &&
+          password.match(/[0-9]/) &&
+          password.match(/[^a-zA-Z0-9]/)
+        ) {
+          strength = "Strong";
+          strengthText.style.color = "green";
+        } else {
+          strength = "Moderate";
+          strengthText.style.color = "blue";
+        }
+
+        strengthText.textContent = strength;
+      });
+    </script>
+  </body>
+</html>

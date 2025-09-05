@@ -1,0 +1,169 @@
+// what is asynchronous code in javascript
+// javascriipt mein async code..
+
+//1.javascript synchronous hota hain ...
+// few language had aasynchronous .. llke there have many thread .. many thread work many types of work.
+
+// but javascript have the synchronous property its means javascript have one /single thread.
+
+//its means after one code execution then the othe code be execute ..
+//code execute one bye one
+// javascript have single threaded .. its meand this language is slow from the other language .
+
+//its all about default javascript ..
+//1. synchronous .
+//2. single threaded..
+
+
+
+//global execution context ..// execution context .
+
+// execute one line of code at a time .//step by step 
+
+//1. console log 1
+//2.console log 2.
+// jab tak purana code execute na ho jaye tab tak ,neya kuch execute nahi hota .
+
+//each execute wait for last one to complete before executing .
+
+
+// we have here 
+1.call stack 
+2.memory heap .
+
+
+
+
+
+// blocking code vs non- blocking code ..
+// it is the synchronous and the asynchronous property .
+
+//blockin code ..
+//block the full flow of a program ..
+// ex : jab tak mein na ahh jayu app kuch mat karna .
+//read file synchronous..
+
+
+//non- blocking code 
+// not block the flow of a code ,
+
+// ex: ap apka kam karo tab tak main a raha huin.
+
+//read file asynchronous..
+
+// in operating system ..any file does not rread a program.read karaaneke liye apka context dena padta hain kernel ko ,kernnel jata hian or ushh program or file ko read karta hain ,the another time execution de jata hain program ko kernel she then the code execute.
+
+//kernel not wait for the program. because it is busy all time 
+
+
+
+// which blocking is good .. and which blocking is nor good ..
+
+//suppose we gott a data and we need to store the data in database. and give a notification to user that registration sucess.
+// end of the daydata base is a file structure. here we done the read or write operation.
+
+
+// jab tak ohh data write hoin ke ahh raha hain ushke pehele ..sucess message de rahe hoin .
+// write ke time error hoin..
+
+//here we used a blocking code ..jab tak database she data read or write na hoiin ,or data ka koi problem na hoin tab tak koi message user ke pass nahi jayega .
+
+
+
+// **********************************************************
+
+//how it all work
+
+//js engine..alone js execute engine 
+//js engine banta hain memory heap   or call stack   se.
+
+
+// any execution environment like .. browser ,deno, node js ..un sab mein onlly js engine nahi hota hain ,, because js engine single threade hain.
+// ish mein problem hota hain.
+
+
+// js engine with web api .. web api .. browser ke andar melta hain.api ke elaba environment deya jata hain ..
+//agar web api hogi then dom ke access melaga..
+
+// agar node ke env leya hain to fir dom nahi milega..
+
+
+//task queue..
+
+//ehi js koin itna fast or aasync banate hain
+
+
+//promises hota hain ..
+// promise queue ..or high pairity queue ..
+
+
+//jab a program try to execute then a call stack is create .ushh call stack ke andar global execution context bantta hain ..or ak ka karrkee function load hota hain..then ak ak karke execute hota hain.
+
+// web api..koi macanisam hoin when soomeone write a asynchronous code ..that ewala kam karke mereko bad mein yead kara dena ..
+// orr sara kam karaneke liye ham logoke pass web api or node api hota hain ..
+
+
+
+
+//asychronous .. haota hain srt time ,set interval...
+
+
+// set time out ex:
+//sset time out milega api ke andar eathier node api or web api ..
+//asyn ---- call ---- web api --- registar call back(ehh kam karna hain do min ke bad )
+//registar call back add his call back to -----task queue .
+
+// tassk queue add all call back to call stack..
+// edhar autometically ak event lloop rahata hain jho check karta hain ,hamara task queue full to nahi ho geya .call stack khali to nahi hai n.then execute karta hain.
+
+
+// the execute ...
+
+
+// api call set time out ...set interval...
+
+//fetch api .--- task queue ke expen kiya ..eahh dushri task queue add kar diya .
+
+///fetch last mein karneke bad nnmein bhi fetch value first mein aghh raha hain..or sab bad mein a raha hain .setTimeOut bhi bad mein ahh raha hain.
+
+
+// kiu ki ak special queue banta hain only fetch ke liye .// kknow as microtask queue / priority queue /tectch queue / speed queue.
+//vip line jo sidha call stack mein jat ahian ..or ushka result pehela ayega.
+
+
+
+
+//*********************************************************************************** */
+//fetch done the hole work...
+//fetch jaishe kam karta hain ushka internal machanism ohh do part mein divide hota haain.
+//1.web broswer(native node)
+
+//ak array hota hain .1. on fullfilled.(promise ka resolution)..
+
+//or ak hota hain 2.on rejection.(rejection)
+
+// ehh array hota hain ..ish mein directly data push karna allow nahi hain ..
+// we cant access the array.
+
+//2.variable or memeory per data /sspace reserved karne ke liye.
+
+//web browser baase api handel karega ..eya to node base api handel karega.
+// eha se jata haiin ak network request .lekin bich mein lagta hain ak resource.
+//resource may be dehh raha broswer nahi to node js.
+// agfter getting the network request .. eitheer data go (received )or (reject )
+
+////kuch bhi agar response aya tho ohh hamesha jata hain  on fullfilled mein
+//or kuch bhi response nahi aya to ohh hoga reject .
+
+//jho data hota hain ohh memory per reserved hoke reheta hain .lekin ohh hamesh empty hota hain.
+//on fullfilled and    on rejection .in dono mein rahata hain function jho data ko fullfill karneke liye .
+
+//or data ki responsibility hota hain ..response kko fullfill karna .
+
+
+
+
+//setTimOut its all are the part of asynchronous code..here the main event or main thread not block
+//asynchtronous js ke andar makedin hain .
+//js my default asyn nahi hota js ke async banana padtta hain .may may some web api use karke.
+//jho complete js a run time oh async allow karta hain lekin ....js default engin async nahi hota hain...

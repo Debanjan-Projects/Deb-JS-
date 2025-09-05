@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+</body>
+<script>
+    //create a div element...how create a element.
+    //elements are create by usiing  createElement
+   const div =  document.createElement('div')
+    console.log(div);
+    //add property
+    div.className = "main"
+    //add id
+    //we can write id as div. id = "myId"
+    div.id = Math.round(Math.random()* 10+1)
+    //custom attributes set
+    //we have a method for set a custome attributes = div. setAttributes
+    //now the all element  we caan saw in console  but the element are not saw in the diisplay .. so we want to attached te children.... 
+    div.setAttribute("title","generated title")//direct  set values
+    div.style.backgroundColor ="green"
+    div.style.padding = "12px"
+    //creating div abhi memory pa hain page pa nahi ..
+    //div.innerText = 'Debanjan'//here it work as  a overright value 
+const addText = document.createTextNode("Debanjan")
+div.appendChild(addText)//
+
+document.body.appendChild(div)// generate a element.
+</script>
+</html>
+<!-- how create a node list . -->
