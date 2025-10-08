@@ -47,6 +47,11 @@ if (true) {
 
 //closure................................
 
+// No, closure and scope are not the same, but they are closely related in JavaScript.
+
+// Scope refers to the current context of execution, which determines the accessibility of variables. There are mainly global scope, function scope, and block scope.
+
+// Closure happens when a function remembers and accesses variables from its outer scope, even after that outer function has finished executing.
 
 //nested function..
 
