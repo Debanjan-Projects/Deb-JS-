@@ -50,7 +50,7 @@
 
 
 
-
+//************************** */
 //arrow function
 
 //  const addTwo = (num1, num2) => {
@@ -79,5 +79,10 @@ const addTwo = (num1, num2) => ({username: "Debanjan"})
 console.log(addTwo(2,6))
 
 
+
+// difference between function and Arrow function , 
+//A normal function in JavaScript is defined using the function keyword and has its own this context. It can access the special arguments object, which contains all the arguments passed to it. Normal functions can also be used as constructors with the new keyword to create objects. This makes them suitable for complex operations or when specific control over this and arguments is needed.
+
+// An arrow function, on the other hand, is a shorter and more modern way to write functions using the => (arrow) syntax. It does not have its own this; instead, it inherits this from its parent scope (known as lexical scoping). Arrow functions also don’t have their own arguments object and cannot be used as constructors. They are mainly used for simple, concise functions or callbacks, offering cleaner and more readable code.
 
  
