@@ -108,6 +108,8 @@ for (let index = 0; index < myArray.length; index++) {
     
 // }
 
+// The for...of loop in JavaScript is used to iterate over iterable objects such as arrays, strings, maps, sets, or NodeLists. It allows you to directly access the values of these iterables, making the code cleaner and more readable compared to traditional loops.
+
 
 //maps..
 //maps are same as array. thhe maps object holds key values pairs and remembers the original insertion order of the keys.
@@ -146,6 +148,10 @@ for (let index = 0; index < myArray.length; index++) {
 
 
 
+
+// In JavaScript, a Map is a built-in object that allows you to store key–value pairs where both the keys and values can be of any data type (unlike plain objects, which use only strings or symbols as keys). Maps maintain the insertion order of elements, meaning items are retrieved in the same order they were added.
+
+
 // for in loop ....
 const myObject ={
     js: 'javascript',
@@ -167,6 +173,8 @@ const programming =['js','java','python','css']
 for (const [key] in programming) {
 //console.log(programming[key]);
 }
+
+//The for...in loop in JavaScript is used to iterate over the enumerable properties (keys) of an object. It allows you to access each property name one by one, making it useful for looping through object data.
 
 
 
