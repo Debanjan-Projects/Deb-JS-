@@ -3,6 +3,8 @@
 
 
 class user {
+    //when constructor call,
+    //jaishe hi new keyword ko kam mein kehh lenge oshe hi constructor call ho jayega ,
     constructor(username, email ,password){
         this.username = username,
 
