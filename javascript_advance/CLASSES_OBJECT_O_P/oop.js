@@ -27,6 +27,7 @@ const user = {
 //console.log(user.username)
 //console.log(user.getUserDetails());
 // console.log(this);
+//here we got wisdows objects .
 //console.logg agar  main    global context     ke andar karta hain to..
 
 
